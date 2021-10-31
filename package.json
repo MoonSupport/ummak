@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rm -rf lib && tsc",
     "lint": "eslint",
-    "test": "npm run build && NODE_ENV=TEST  xv dist",
+    "test": "npm run build && NODE_ENV=TEST xv dist",
     "xv": "xv lib"
   },
   "author": "MoonSupport",

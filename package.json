@@ -1,12 +1,12 @@
 {
   "name": "ummak",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "super simple api server based on json-server",
   "main": "dist",
   "scripts": {
     "build": "rm -rf lib && tsc",
     "lint": "eslint",
-    "test": "npm run build && NODE_ENV=TEST  xv dist",
+    "test": "npm run build && NODE_ENV=TEST xv dist",
     "publish": "yarn test && yarn lint && yarn build && npm publish"
   },
   "author": "MoonSupport",

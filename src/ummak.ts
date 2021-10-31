@@ -13,6 +13,7 @@ import {
 } from './types';
 import { WarningInitConstructorMessage, WarningInitFunctionMessage } from '.';
 import { NODE_ENV } from './constants';
+import { defaultPostHandler, listenCallback } from './defaultHandler';
 
 const __UMMAK_TOKEN = Symbol('UMMAK');
 const validateInnerFunction = (token: symbol, errMessage: string) => {
@@ -21,10 +22,6 @@ const validateInnerFunction = (token: symbol, errMessage: string) => {
     : void (function () {
         throw new Error(errMessage);
       })();
-};
-
-const _call = () => {
-  return;
 };
 
 export class Ummak implements IJSONServer {
@@ -37,7 +34,7 @@ export class Ummak implements IJSONServer {
     this.server = jsonServer.create();
   }
 
-  static init(port = 3000, callback = _call, filename = 'db.json') {
+  static init(port = 3000, callback = listenCallback, filename = 'db.json') {
     const _instance: IJSONServer = new Ummak(filename, __UMMAK_TOKEN);
 
     const defaultHomepageMiddleWare = jsonServer.defaults();
@@ -52,7 +49,7 @@ export class Ummak implements IJSONServer {
     process.nextTick(() => _instance.use(jsonServer.router(filename)));
 
     if (process.env.NODE_ENV !== NODE_ENV.TEST)
-      _instance.listen(port, callback, __UMMAK_TOKEN);
+      _instance.listen(port, callback(port), __UMMAK_TOKEN);
     return _instance;
   }
 
@@ -68,6 +65,18 @@ export class Ummak implements IJSONServer {
 
   public get(name: string, handler: UmmakHanlder) {
     this.server.get(name, handler as unknown as RequestHandler);
+  }
+
+  public post(name: string, handler: UmmakHanlder = defaultPostHandler(name)) {
+    this.server.post(name, handler as unknown as RequestHandler);
+  }
+
+  public put(name: string, handler: UmmakHanlder) {
+    this.server.put(name, handler as unknown as RequestHandler);
+  }
+
+  public delete(name: string, handler: UmmakHanlder) {
+    this.server.delete(name, handler as unknown as RequestHandler);
   }
 
   public injectContext: InjectContext = (token: symbol) => {

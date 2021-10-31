@@ -25,4 +25,5 @@ export interface IJSONServer {
   listen: (port: number, callback: any, token: symbol) => void;
   injectContext: InjectContext;
   get: (name: string, hanlder: UmmakHanlder) => void;
+  post: (name: string, hanlder?: UmmakHanlder) => void;
 }

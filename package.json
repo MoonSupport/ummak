@@ -7,7 +7,7 @@
     "build": "rm -rf lib && tsc",
     "lint": "eslint",
     "test": "npm run build && NODE_ENV=TEST  xv dist",
-    "xv": "xv lib"
+    "publish": "yarn test && yarn lint && yarn build && npm publish"
   },
   "author": "MoonSupport",
   "license": "ISC",

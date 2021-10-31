@@ -1,31 +1,36 @@
 {
-    "todos": [
-      {
-        "id": 1,
-        "content": "HTML",
-        "completed": true
-      },
-      {
-        "id": 2,
-        "content": "CSS",
-        "completed": false
-      },
-      {
-        "id": 3,
-        "content": "Javascript",
-        "completed": true
-      }
-    ],
-    "users": [
-      {
-        "id": 1,
-        "name": "Lee",
-        "role": "developer"
-      },
-      {
-        "id": 2,
-        "name": "Kim",
-        "role": "designer"
-      }
-    ]
-  }
+  "todos": [
+    {
+      "id": 1,
+      "content": "HTML",
+      "completed": true
+    },
+    {
+      "id": 2,
+      "content": "CSS",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "content": "Javascript",
+      "completed": true
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "ummak",
+      "password": "1234",
+      "name": "Lee",
+
+      "role": "developer"
+    },
+    {
+      "id": 2,
+      "username": "zoopraxiscope",
+      "password": "ummak",
+      "name": "Kim",
+      "role": "designer"
+    }
+  ]
+}

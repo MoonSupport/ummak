@@ -19,6 +19,7 @@ export interface UmmakContext {
 }
 export interface UmmmakRequest extends Request {
   context: UmmakContext;
+  user: Object;
 }
 
 type Primitive = Number | String | Boolean | Object;
@@ -45,4 +46,5 @@ export interface IUmmak {
   post: (name: string, hanlder?: UmmakHanlder) => void;
   put: (name: string, hanlder?: UmmakHanlder) => void;
   delete: (name: string, hanlder?: UmmakHanlder) => void;
+  auth: (name: string) => void;
 }

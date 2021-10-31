@@ -17,6 +17,7 @@
     - [Create](#Create)
     - [Update](#Update)
     - [Delete](#Delete)
+  - [Authenticate](#Authenticate)
   - [CustomRoute](#CustomRoute)
 
 - [API](#API)
@@ -228,8 +229,10 @@ const server = Ummak.init();
 server.put('/todos/:id');
 ```
 
-```
-PUT /todos/3
+request
+
+```js
+PUT / todos / 3;
 payload = {
   view: 8,
 };
@@ -247,8 +250,35 @@ const server = Ummak.init();
 server.delete('/todos/:id');
 ```
 
+request
+
 ```
 DELETE /todos/3
+```
+
+## Authenticate
+
+움막은 JWT기반의 인증을 지원합니다. `db` 에서 로그인을 위한 유저 토큰명을 입력할 수 있습니다. 기본 값은 `users` 입니다.
+
+```js
+server.auth();
+server.auth('users');
+```
+
+기본적으로 `POST /login` 을 통해 로그인합니다.
+인증 정보를 확인하려면 `POST /auth` 를 이용합니다.
+유저의 인증은 find와 동일하게 동작합니다. 때문에 payload는 어떤 컬럼 값이든 상관 없습니다.
+예를 들어 일반적으로 `username`과 `password`를 활용 할 수 있습니다.
+
+```
+POST / login
+
+payload = {
+  username: 'ummak1234',
+  password: '1234ummak!@',
+};
+
+POST / auth
 ```
 
 ## API
@@ -259,9 +289,5 @@ DELETE /todos/3
 
 import { Ummak } from 'ummak';
 Ummak.init();
-
-```
-
-```
 
 ```

@@ -5,7 +5,9 @@ import { UmmmakRequest, Response } from '.';
 import { JSONFile } from './cjs_lowdb/bin/adapters/JSONFile';
 import { Low } from './cjs_lowdb/bin/Low';
 import {
+  defaultAuthMiddleware,
   defaultDeleteHandler,
+  defaultLoginHandler,
   defaultPostHandler,
   defaultPutHandler,
 } from './defaultHandler';
@@ -132,4 +134,56 @@ export async function testDefaultDeleteHandler() {
     test: [],
   });
   unlinkSync(file);
+}
+
+export async function testDefaultLoginHandler() {
+  const userinfo = { username: 'test', content: 'ummak' };
+  const db = createMockConnection({
+    users: [userinfo],
+  });
+  const req = {
+    body: userinfo,
+    context: {
+      db,
+    },
+    cookies: {},
+  } as unknown as UmmmakRequest;
+  const next = () => {};
+  const res = {
+    send: () => {},
+    status: (num: number) => res,
+    cookie: (name, token) => {
+      req.cookies[name] = token;
+    },
+  } as unknown as Response;
+
+  await defaultLoginHandler()(req, res);
+  await defaultAuthMiddleware()(req, res, next);
+  assert.equal(req.user['username'], userinfo['username']);
+  assert.equal(req.user['content'], userinfo['content']);
+}
+
+export async function testDefaultNoLoginHandler() {
+  const userinfo = { username: 'test', content: 'ummak' };
+  const db = createMockConnection({
+    users: [userinfo],
+  });
+  const req = {
+    body: userinfo,
+    context: {
+      db,
+    },
+    cookies: {},
+  } as unknown as UmmmakRequest;
+  const next = () => {};
+  const res = {
+    send: () => {},
+    status: (num: number) => res,
+    cookie: (name, token) => {
+      req.cookies[name] = token;
+    },
+  } as unknown as Response;
+
+  await defaultAuthMiddleware()(req, res, next);
+  assert.equal(req.user, undefined);
 }

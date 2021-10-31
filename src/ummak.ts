@@ -1,5 +1,6 @@
 import jsonServer from 'json-server';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 import { Low, JSONFile } from './cjs_lowdb/bin/index';
 import {
   IUmmak,
@@ -19,6 +20,10 @@ import {
   defaultPutHandler,
   defaultDeleteHandler,
   listenCallback,
+  defaultLoginHandler,
+  defaultLogoutHandler,
+  defaultAuthHandler,
+  defaultAuthMiddleware,
 } from './defaultHandler';
 
 const __UMMAK_TOKEN = Symbol('UMMAK');
@@ -52,6 +57,7 @@ export class Ummak implements IUmmak {
       })
     );
     _instance.use(bodyParser.json());
+    _instance.use(cookieParser());
     process.nextTick(() => _instance.use(jsonServer.router(filename)));
 
     if (process.env.NODE_ENV !== NODE_ENV.TEST)
@@ -92,6 +98,13 @@ export class Ummak implements IUmmak {
     handler: UmmakHanlder = defaultDeleteHandler(name.substr(1).split('/')[0])
   ) {
     this.server.delete(name, handler as unknown as RequestHandler);
+  }
+
+  public auth(name: string = 'users') {
+    this.server.post('/login', defaultLoginHandler(name));
+    this.server.post('/auth', defaultAuthHandler(name));
+    this.server.post('/logout', defaultLogoutHandler(name));
+    this.use(defaultAuthMiddleware(name));
   }
 
   public injectContext: InjectContext = (token: symbol) => {

@@ -1,4 +1,6 @@
 const { Ummak } = require('../dist');
-Ummak.init(3000, () => {
-  console.log('hello world');
-});
+const server = Ummak.init();
+
+server.post('/todos');
+server.put('/todos/:id');
+server.delete('/todos/:id');

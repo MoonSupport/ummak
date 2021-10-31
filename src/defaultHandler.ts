@@ -9,7 +9,12 @@ export const defaultPostHandler =
   async (req, res) => {
     const { db } = req.context;
     await db.read();
-    db.data[name].push(req.body);
+    const resources = db.data[name];
+    if (!req.body?.id) {
+      const incrementID = resources[resources.length - 1]?.id + 1 || 1;
+      Object.assign(req.body, { id: incrementID });
+    }
+    resources.push(req.body);
     await db.write();
     res.send(`successful create data`);
   };

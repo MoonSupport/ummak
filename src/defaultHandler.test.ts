@@ -53,6 +53,36 @@ export async function testDefaultPostHandler() {
   unlinkSync(file);
 }
 
+export async function testDefaultAutoIncrementHandler() {
+  const db = createMockConnection({
+    test: [{ id: 1, content: 'mock' }],
+  });
+  await defaultPostHandler('test')(
+    {
+      body: {
+        content: 'test',
+      },
+      context: {
+        db,
+      },
+    } as unknown as UmmmakRequest,
+    {
+      send: () => {},
+    } as unknown as Response
+  );
+  const result = JSON.parse(readFileSync(file, 'utf-8'));
+  assert.deepEqual(result, {
+    test: [
+      { id: 1, content: 'mock' },
+      {
+        id: 2,
+        content: 'test',
+      },
+    ],
+  });
+  unlinkSync(file);
+}
+
 export async function testDefaultPutHandler() {
   const db = createMockConnection({
     test: [{ id: 1, content: 'mock' }],

@@ -1,0 +1,1 @@
+{"version":3,"file":"JSONFileSync.d.ts","sourceRoot":"","sources":["../../src/adapters/JSONFileSync.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,WAAW,EAAE,MAAM,eAAe,CAAA;AAG3C,qBAAa,YAAY,CAAC,CAAC,CAAE,YAAW,WAAW,CAAC,CAAC,CAAC;;gBAGxC,QAAQ,EAAE,MAAM;IAI5B,IAAI,IAAI,CAAC,GAAG,IAAI;IAShB,KAAK,CAAC,GAAG,EAAE,CAAC,GAAG,IAAI;CAGpB"}

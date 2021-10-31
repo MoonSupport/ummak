@@ -1,0 +1,1 @@
+{"version":3,"file":"LocalStorage.d.ts","sourceRoot":"","sources":["../../src/adapters/LocalStorage.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,WAAW,EAAE,MAAM,eAAe,CAAA;AAE3C,qBAAa,YAAY,CAAC,CAAC,CAAE,YAAW,WAAW,CAAC,CAAC,CAAC;;gBAGxC,GAAG,EAAE,MAAM;IAIvB,IAAI,IAAI,CAAC,GAAG,IAAI;IAUhB,KAAK,CAAC,GAAG,EAAE,CAAC,GAAG,IAAI;CAGpB"}

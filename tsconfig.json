@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "importHelpers": true,
+        "noUnusedLocals": true,
+        "esModuleInterop": true,
+        "declaration": true,
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": false,
+        "isolatedModules": true,
+        "outDir": "dist",
+        "declarationMap": true
+    },
+    "include": ["src"],
+    "exclude": ["node_modules"]
+  }
+  

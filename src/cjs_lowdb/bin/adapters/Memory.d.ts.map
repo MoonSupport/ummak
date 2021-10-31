@@ -1,0 +1,1 @@
+{"version":3,"file":"Memory.d.ts","sourceRoot":"","sources":["../../src/adapters/Memory.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,WAAW,CAAA;AAEnC,qBAAa,MAAM,CAAC,CAAC,CAAE,YAAW,OAAO,CAAC,CAAC,CAAC;;IAG1C,IAAI,IAAI,OAAO,CAAC,CAAC,GAAG,IAAI,CAAC;IAIzB,KAAK,CAAC,GAAG,EAAE,CAAC,GAAG,OAAO,CAAC,IAAI,CAAC;CAI7B"}

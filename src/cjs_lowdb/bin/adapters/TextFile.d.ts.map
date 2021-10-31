@@ -1,0 +1,1 @@
+{"version":3,"file":"TextFile.d.ts","sourceRoot":"","sources":["../../src/adapters/TextFile.ts"],"names":[],"mappings":"AAGA,OAAO,EAAE,OAAO,EAAE,MAAM,WAAW,CAAA;AAEnC,qBAAa,QAAS,YAAW,OAAO,CAAC,MAAM,CAAC;;gBAIlC,QAAQ,EAAE,MAAM;IAKtB,IAAI,IAAI,OAAO,CAAC,MAAM,GAAG,IAAI,CAAC;IAepC,KAAK,CAAC,GAAG,EAAE,MAAM,GAAG,OAAO,CAAC,IAAI,CAAC;CAGlC"}

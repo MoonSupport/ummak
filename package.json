@@ -1,0 +1,36 @@
+{
+  "name": "ummak",
+  "version": "1.0.0",
+  "description": "super simple api server based on json-server",
+  "main": "dist",
+  "scripts": {
+    "build": "rm -rf lib && tsc",
+    "lint": "eslint",
+    "test": "npm run build && NODE_ENV=TEST  xv dist",
+    "xv": "xv lib"
+  },
+  "author": "MoonSupport",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "json-server": "^0.17.0"
+  },
+  "devDependencies": {
+    "tslib": "^2.3.1",
+    "@types/json-server": "^0.14.4",
+    "@types/node": "^16.11.6",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "@typescript-eslint/parser": "^5.2.0",
+    "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1",
+    "tsc": "^2.0.3",
+    "typescript": "^4.4.4",
+    "xv": "^1.1.1"
+  },
+  "files": [
+    "dist",
+    "!dist/*.test.js"
+  ]
+}

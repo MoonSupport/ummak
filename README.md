@@ -2,6 +2,8 @@
 
 움막은 JSON-SERVER 기반의 프로그래밍 연습을 위해 최대한 대충 만들 수 있는 API 입니다. ( 프론트엔드 개발자에게 유용 할 수 있습니다. )
 
+[![NPM Version][npm-image]][npm-url]
+
 ## 목차
 
 - [설치하기](#설치하기)
@@ -291,3 +293,5 @@ import { Ummak } from 'ummak';
 Ummak.init();
 
 ```
+[npm-image]: https://img.shields.io/npm/v/ummak.svg
+[npm-url]: https://npmjs.org/package/ummak
